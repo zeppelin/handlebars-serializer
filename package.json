@@ -1,0 +1,47 @@
+{
+  "name": "handlebars-serializer",
+  "version": "0.0.0",
+  "description": "Serialize Handlebars AST into string",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "bower install",
+    "build": "bin/build.js",
+    "pretest": "bin/build.js",
+    "test": "bin/run-tests.js",
+    "start": "broccoli serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zeppelin/handlebars-serializer"
+  },
+  "keywords": [
+    "handlebars"
+  ],
+  "author": "Gabor Babicz <gabor.babicz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zeppelin/handlebars-serializer/issues"
+  },
+  "homepage": "https://github.com/zeppelin/handlebars-serializer",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "bower": "~1.3.9",
+    "broccoli": "~0.12.3",
+    "broccoli-cli": "0.0.1",
+    "broccoli-concat": "0.0.8",
+    "broccoli-es6-module-transpiler": "~0.1.0",
+    "broccoli-esnext": "~0.2.0",
+    "broccoli-export-tree": "~0.3.2",
+    "broccoli-file-mover": "~0.3.0",
+    "broccoli-jshint": "~0.4.0",
+    "broccoli-merge-trees": "~0.1.4",
+    "broccoli-replace": "~0.1.7",
+    "broccoli-static-compiler": "~0.1.4",
+    "broccoli-uglify-js": "~0.1.3",
+    "chalk": "~0.5.1",
+    "copy-dereference": "~1.0.0",
+    "ncp": "~0.6.0",
+    "rimraf": "^2.2.8",
+    "rsvp": "~3.0.9"
+  }
+}
