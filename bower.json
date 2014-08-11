@@ -5,7 +5,7 @@
     "Gabor Babicz <gabor.babicz@gmail.com>"
   ],
   "description": "Serialize Handlebars AST into string",
-  "main": "dist/handlebars-serializer.amd.js",
+  "main": "dist/amd/handlebars-serializer.js",
   "keywords": [
     "handlebars"
   ],

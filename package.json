@@ -2,7 +2,7 @@
   "name": "handlebars-serializer",
   "version": "0.0.0",
   "description": "Serialize Handlebars AST into string",
-  "main": "index.js",
+  "main": "dist/cjs/handlebars-serializer.js",
   "scripts": {
     "postinstall": "bower install",
     "build": "bin/build.js",
@@ -44,5 +44,6 @@
     "ncp": "~0.6.0",
     "rimraf": "^2.2.8",
     "rsvp": "~3.0.9"
-  }
+  },
+  "dependencies": {}
 }

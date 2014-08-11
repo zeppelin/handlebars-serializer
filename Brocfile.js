@@ -12,18 +12,30 @@ var packages = require('./packages');
 
 function getPackageTrees(packageName) {
   // Lib
-  var lib = moveFile(pickFiles('packages/' + packageName + '/lib', {
+  var libRoot = 'packages/' + packageName + '/lib';
+
+  var transpiledLibCJS = moveFile(pickFiles(esNext(transpileES6(libRoot, { moduleName: true, type: 'cjs' })), {
+    srcDir: '/',
+    destDir: '/cjs/handlebars-serializer'
+  }), {
+    srcFile: '/cjs/' + packageName + '/main.js',
+    destFile: '/cjs/' + packageName + '.js'
+  });
+
+  var lib = moveFile(pickFiles(libRoot, {
    srcDir: '/',
    destDir: '/' + packageName
   }), {
    srcFile: packageName + '/main.js',
    destFile: '/' + packageName + '.js'
   });
-  var transpiledLib = esNext(transpileES6(lib, { moduleName: true }));
-  var concatenatedLib = concatFiles(transpiledLib, {
+  var transpiledLibAMD = esNext(transpileES6(lib, { moduleName: true }));
+  var concatenatedLib = concatFiles(transpiledLibAMD, {
     inputFiles: ['**/*.js'],
-    outputFile: '/' + packageName + '.amd.js'
+    outputFile: '/amd/' + packageName + '.js'
   });
+
+
 
   // Tests
   var testSupports = pickFiles('test/support', {
@@ -43,7 +55,7 @@ function getPackageTrees(packageName) {
     outputFile: '/test/' + packageName + '-tests.amd.js'
   });
 
-  return [concatenatedLib, concatenatedTests];
+  return [concatenatedLib, concatenatedTests, transpiledLibCJS];
 }
 
 
