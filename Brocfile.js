@@ -6,6 +6,7 @@ var replace = require('broccoli-replace');
 var transpileES6 = require('broccoli-es6-module-transpiler');
 var jsHint = require('broccoli-jshint');
 var esNext = require('broccoli-esnext');
+var wrapFiles = require('broccoli-wrap');
 
 var packages = require('./packages');
 
@@ -56,6 +57,17 @@ var handlebars = pickFiles(bower, {
   destDir: '/vendor'
 });
 
+var lodash = wrapFiles(moveFile(pickFiles(bower, {
+  srcDir: '/lodash',
+  files: [ 'index.js' ],
+  destDir: '/vendor'
+}), {
+  srcFile: '/vendor/index.js',
+  destFile: '/vendor/lodash.amd.js'
+}), {
+  wrapper: ['(function(){;\n', 'define("lodash",["exports"],function(__exports__) {"use strict";__exports__["default"]=_;})})();']
+});
+
 
 
 // Test Assets
@@ -90,7 +102,7 @@ var qunit = pickFiles(bower, {
 
 // Export trees
 
-var trees = [handlebars, test, loader, qunit];
+var trees = [handlebars, lodash, test, loader, qunit];
 
 for (var packageName in packages.dependencies) {
   trees = trees.concat(getPackageTrees(packageName));

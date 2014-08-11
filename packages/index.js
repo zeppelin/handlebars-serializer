@@ -26,13 +26,14 @@ module.exports = {
   revision: getRevision(),
 
   vendored: {
-    "handlebars": true
+    "handlebars": true,
+    "lodash": true
   },
 
   dependencies: {
     "handlebars-serializer": {
       lib: ["handlebars-serializer"],
-      test: ["handlebars"]
+      test: ["handlebars", "lodash"]
     }
   }
 };
