@@ -1,6 +1,6 @@
 {
   "name": "handlebars-serializer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "authors": [
     "Gabor Babicz <gabor.babicz@gmail.com>"
   ],
@@ -10,7 +10,6 @@
     "handlebars"
   ],
   "license": "MIT",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",

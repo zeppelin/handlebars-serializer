@@ -1,6 +1,6 @@
 {
   "name": "handlebars-serializer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Serialize Handlebars AST into string",
   "main": "dist/cjs/handlebars-serializer.js",
   "scripts": {
