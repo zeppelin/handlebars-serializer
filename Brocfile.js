@@ -57,17 +57,6 @@ var handlebars = pickFiles(bower, {
   destDir: '/vendor'
 });
 
-var lodash = wrapFiles(moveFile(pickFiles(bower, {
-  srcDir: '/lodash',
-  files: [ 'index.js' ],
-  destDir: '/vendor'
-}), {
-  srcFile: '/vendor/index.js',
-  destFile: '/vendor/lodash.amd.js'
-}), {
-  wrapper: ['(function(){;\n', 'define("lodash",["exports"],function(__exports__) {"use strict";__exports__["default"]=_;})})();']
-});
-
 
 
 // Test Assets
@@ -102,7 +91,7 @@ var qunit = pickFiles(bower, {
 
 // Export trees
 
-var trees = [handlebars, lodash, test, loader, qunit];
+var trees = [handlebars, test, loader, qunit];
 
 for (var packageName in packages.dependencies) {
   trees = trees.concat(getPackageTrees(packageName));
