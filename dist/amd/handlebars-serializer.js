@@ -296,6 +296,8 @@ define("handlebars-serializer/visitor",
           if (handler) {
             return handler.call(this, object, options);
           }
+
+          return object;
         },
 
         enumerable: false,

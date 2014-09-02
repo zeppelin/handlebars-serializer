@@ -13,6 +13,8 @@ exports["default"] = function() {
       if (handler) {
         return handler.call(this, object, options);
       }
+
+      return object;
     },
 
     enumerable: false,

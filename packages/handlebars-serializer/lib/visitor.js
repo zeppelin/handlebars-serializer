@@ -13,5 +13,7 @@ export default class Visitor {
     if (handler) {
       return handler.call(this, object, options);
     }
+
+    return object;
   }
 }
